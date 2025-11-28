@@ -3,7 +3,10 @@ import urllib.parse
 from django.conf import settings
 from django.shortcuts import redirect
 import requests
-from .models import UserProfile, User
+from .models import UserProfile
+from django.contrib.auth.models import User
+
+from django.contrib.auth import login
 
 
 def spotify_login(request):
@@ -46,6 +49,8 @@ def spotify_callback(request):
     profile.access_token = access_token
     profile.refresh_token = refresh_token
     profile.save()
+
+    login(request, user)
 
     return redirect("/")
 
