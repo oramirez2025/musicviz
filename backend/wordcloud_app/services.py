@@ -22,5 +22,3 @@ def create_word_freq(userProfile):
   
    wc = WordCloud(user=userProfile, words=res)
    return wc
-
-

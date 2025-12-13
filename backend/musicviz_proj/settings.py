@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user_app',
     'track_app',
+    'wordcloud_app',
     'rest_framework',
     'rest_framework.authtoken'
 ]
@@ -94,6 +95,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'musicviz_db',
+        'USER': 'postgres',
+        'PASSWORD': os.getenv('PASSWORD')
     }
 }
 
